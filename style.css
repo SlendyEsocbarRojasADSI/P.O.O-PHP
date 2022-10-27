@@ -13,10 +13,12 @@ body{
 h1{
     color: pink;
     font-size: 50px;
+    text-align: center;
 }
 
 h3{
     color: indianred;
+    text-align: right;
     font-size: 2em;
 }
 
@@ -24,32 +26,43 @@ p{
     color: white;
 }
 
-form{
-    background: pink;
-    margin: 20px;
-    width: 320px;
-    border-radius: 5px;
-    border: none;
-    height: 30%;
-    padding: 15px;
+.contenedor{
+    border: 1px solid silver;
+    margin: 0 auto;
+    width: 60%;
+    background: palevioletred;
+    padding: 10px;
+}
+
+.imagen{
     text-align: center;
 }
 
-input{
-    padding: 7px;
-    width: 80%;
-    align-items: center;
+img{
+    width: 300px;
 }
 
-input::selection{
-    background-color: palevioletred;
-    font-size: 30px;
+.principal{
+    background: white;
+    padding: 10px;
 }
 
-input[type="submit"]{
-    margin-top: 10px;
+
+form{
+    background: pink;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
 }
 
+table{
+    border: 0;
+    width: 1000;
+}
+
+/*
 pre{
     background: pink;
     color: rgb(35, 35, 35);
@@ -61,3 +74,4 @@ pre{
     padding: 15px;
     text-align: center;
 }
+*/
