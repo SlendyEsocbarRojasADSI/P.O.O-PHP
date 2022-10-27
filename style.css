@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Dosis:wght@400;600&family=Titillium+Web:wght@200;300&display=swap');
+
+*{
+    font-family: 'Titillium Web', sans-serif;
+    padding: auto;
+    width: auto;
+}
+
+body{
+    background: rgb(31, 31, 31);
+}
+
+h1{
+    color: pink;
+    font-size: 50px;
+}
+
+h3{
+    color: indianred;
+    font-size: 2em;
+}
+
+p{
+    color: white;
+}
+
+form{
+    background: pink;
+    margin: 20px;
+    width: 320px;
+    border-radius: 5px;
+    border: none;
+    height: 30%;
+    padding: 15px;
+    text-align: center;
+}
+
+input{
+    padding: 7px;
+    width: 80%;
+    align-items: center;
+}
+
+input::selection{
+    background-color: palevioletred;
+    font-size: 30px;
+}
+
+input[type="submit"]{
+    margin-top: 10px;
+}
+
+pre{
+    background: pink;
+    color: rgb(35, 35, 35);
+    margin: 20px;
+    width: 320px;
+    border-radius: 5px;
+    border: none;
+    height: 30%;
+    padding: 15px;
+    text-align: center;
+}
