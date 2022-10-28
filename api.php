@@ -12,130 +12,69 @@
 
 <body>
 
-    <h1>Ejemplo de factura</h1>
-    <p>2.	De la galería de productos, el usuario introducirá el código y el número de unidades del producto que desea comprar. El programa determinará el total a pagar, como una factura.</p>
+    <h1>Imprimir Carrera</h1>
+    <p>3.	Escribir un programa que permita ingresar para los N alumnos de una universidad: SEXO (‘M’ o ‘F’), edad y carrera (‘A’,’B’,’C’). Imprimir la carrera con menor promedio de edad de sus alumnos que son varones.</p>
 
-    <div class="contenedor">
-        <div class="principal">
-            <div class="imagen">
-                <img src="https://demonslayermerch.store/wp-content/uploads/2021/11/Demon-Slayer-logo.png" alt="">
-            </div>
-            <h1>Facturacion</h1>
-            <?php echo '<h3>'."Fecha:" .$fecha= date("Y-m-d").'</h3>;'?>
-            <form class="" action="api.php" method="post">
-                <div class="datos">
-                    Nombre <input type="text" name="nombre" value="">
-                    Identificacion <input type="number" name="Id" value="">
-                    <br><br>
-                    Producto 1: <input type="text" name="p1">
-                    Cantidad: <input type="text" name="c1">
-                    Valor unitario: <input type="text" name="v1">
-                    <br><br>
-                    Producto 2: <input type="text" name="p2">
-                    Cantidad: <input type="text" name="c2">
-                    Valor unitario: <input type="text" name="v2">
-                    <br><br>
-                    Producto 3: <input type="text" name="p3">
-                    Cantidad: <input type="text" name="c3">
-                    Valor unitario: <input type="text" name="v3">
-                    <br><br>
-                    Producto 4: <input type="text" name="p4">
-                    Cantidad: <input type="text" name="c4">
-                    Valor unitario: <input type="text" name="v4">
-                    <br><br>
-                    Producto 5: <input type="text" name="p5">
-                    Cantidad: <input type="text" name="c5">
-                    Valor unitario: <input type="text" name="v5">
-                    <input type="submit" value="Generar">
-                    <?php
-                        $nombre= $_POST['nombre'];
-                        $id= $_POST['Id'];
+<?php
 
-                        $pro1= $_POST['p1'];
-                        $cant1= $_POST['c1'];
-                        $val1= $_POST['v1'];
-                        $pro2= $_POST['p2'];
-                        $cant2= $_POST['c2'];
-                        $val2= $_POST['v2'];
-                        $pro3= $_POST['p3'];
-                        $cant3= $_POST['c3'];
-                        $val3= $_POST['v3'];
-                        $pro4= $_POST['p4'];
-                        $cant4= $_POST['c4'];
-                        $val4= $_POST['v4'];
-                        $pro5= $_POST['p5'];
-                        $cant5= $_POST['c5'];
-                        $val5= $_POST['v5'];
+    if ($_SERVER['REQUEST_METHOD']=='POST'){
+        
+        $edad = intval ($_POST['edad']);
+        $sexo = intval ($_POST['sexo']);
+        $carrera = intval ($_POST['carrera']);
 
-                        $productos= array($pro1, $pro2, $pro3, $pro4, $pro5);
-                        $cantidad= array($cant1, $cant2, $cant3,  $cant4, $cant5);
-                        $valor= array($val1, $val2, $val3, $val4, $val5);
+        if($carrera==1){
+                
+        $estudiantes_de_ingenieria=$estudiantes_de_ingenieria+1;
+        $a=$a+$edad;
+        
+        } if($sexo==1)
+            $b=$b+1;
+        if($carrera==1&&$sexo==2)
+            $c=$c+1;
+    }
+?>
+    <form method="post">
+        <table style="text-align: left; margin-left: auto; margin-right: auto;" border="1" cellpadding="1" cellspacing="1">
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="edad">Ingresa el valor de edad:</label>
+                    </td>
+                    <td>
+                        <input name="edad" required="required" step="1" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sexo">Selecciona el valor de sexo:</label>
+                    </td>
+                    <td>
+                        <select name="sexo" required="required">
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="carrera">Selecciona el valor de carrera:</label>
+                    </td>
+                    <td>
+                        <select name="carrera" required="required">
+                            <option value="1">Ingenier&iacute;a</option>
+                            <option value="2">otra carrera</option>
+                         </select>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2" rowspan="1">
+                        <input value="Procesar" type="submit" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 
-                        $pretotal1= $cant1*$val1;
-                        $pretotal2= $cant2*$val2;
-                        $pretotal3= $cant3*$val3;
-                        $pretotal4= $cant4*$val4;
-                        $pretotal5= $cant5*$val5;
-
-                        $valortotal= array($pretotal1, $pretotal2, $pretotal3, $pretotal4, $pretotal5);
-                        $suma= array_sum($valortotal);
-
-                        $iva= $suma*0.19;
-                        $valorpagar= $suma+$iva;
-                    ?>
-
-                    <div>
-                        <hr color="palevioletred">
-                    <center>
-                        <h2>Detalle de compra</h2>
-                        <table>
-                            <tr>
-                                <td><b>Productos</b></td>
-                                <td><b>Cantidad</b></td>
-                                <td><b>Precio unitario</b></td>
-                                <td><b>Precio total</b></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <?php
-                                    foreach ($productos as $pro){
-                                        echo $pro.'<br>';
-                                    }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    foreach ($cantidad as $can){
-                                        echo $can.'<br>';
-                                    }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    foreach ($valor as $valoru){
-                                        echo $valoru.'<br>';
-                                    }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    foreach ($valortotal as $valort){
-                                        echo $valort.'<br>';
-                                    }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><?php echo 'Total compra: $'.$suma .'<br>' .'Iva: $'.$iva .'<br>' .'Total a pagar: $'.$valorpagar;
-                                ?></td>
-                            </tr>
-                        </table>
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 </html>
